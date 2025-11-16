@@ -45,17 +45,18 @@ topics = [
 
 def generate_blog(topic):
     system = "You are an SEO copywriter for a WiFi / hospitality services company. Produce clean HTML output."
-    prompt = f\"\"\"
-    Write a 700-900 word SEO blog in HTML about: {topic}.
-    Include:
-    - <title> (<=60 chars)
-    - <meta name=\"description\"> (<=155 chars)
-    - H1 and H2s
-    - Two short FAQs (schema friendly)
-    - Suggested internal link targets (use example paths)
-    Output only an HTML snippet.
-    \"\"\"
+    prompt = f"""
+Write a 700–900 word SEO blog in HTML about: {topic}.
+Include:
+- <title> (max 60 chars)
+- <meta name="description"> (max 155 chars)
+- H1 and H2s
+- Two short FAQs
+- Suggested internal link targets (use example URLs)
+Output only valid HTML.
+"""
     return call_openai(system, prompt, max_tokens=1200)
+
 
 for t in topics:
     print("Generating:", t)
