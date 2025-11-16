@@ -1,0 +1,4 @@
+*.env
+*.key
+
+# Keep this repo small
